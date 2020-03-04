@@ -43,7 +43,7 @@ char choose;  //使用者选择身份
 	  
 	  
 		  }break;
-degault:printf("enter choose error!\n);  //错误提示
+default:printf("enter choose error!\n);  //错误提示
   }
 	return 0;
 }
