@@ -1,6 +1,8 @@
 void input(struct province *p,int n)
-{ printf("请录入各省各类数据")
-   scanf("累计确诊%d",p->Cumulativediagnosis);
+{ printf("请录入各省各类数据");
+    scanf("省区名字%s",p->name);
+    scanf("当日时间%f",p->time);
+    scanf("累计确诊%d",p->Cumulativediagnosis);
     scanf("累计治愈%d",p->Cumulativecure);
     scanf("累计死亡%d",p->Cumulativedeath);
     scanf("新增确诊%d",p->Newlydiagnosed);
@@ -19,7 +21,9 @@ void input(struct province *p,int n)
 void output(struct province *p,int n)
 {int i;
 for(i=0;i<n;i++) 
-    {printf("累计确诊%d",p[i]->Cumulativediagnosis);
+    {printf("省区名字%s",p[i]->name);
+    printf("当日时间%f",p[i]->time);
+	printf("累计确诊%d",p[i]->Cumulativediagnosis);
     printf("累计治愈%d",p[i]->Cumulativecure);
     printf("累计死亡%d",p[i]->Cumulativedeath );
     printf("新增确诊%d",p[i]->Newlydiagnosed);
