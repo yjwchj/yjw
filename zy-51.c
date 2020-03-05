@@ -6,7 +6,9 @@
 int main() 
 {
 	struct province
-	{int Cumulativediagnosis;
+	{char name[20];
+	 float time;
+	 int Cumulativediagnosis;
 	 int Cumulativecure;
      int Cumulativedeath ;
      int Newlydiagnosed;
