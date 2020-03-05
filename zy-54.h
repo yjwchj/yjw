@@ -60,7 +60,7 @@ for(m=0;m<34;m++);
 	      case 12:printf("请输入新的疑似增加数据：\n");
 	              scanf("%d",&pro[num].Suspectedincrease);
 	              break;
-	    
+	}
 	        
 		 }
 	     
