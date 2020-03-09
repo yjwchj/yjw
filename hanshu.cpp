@@ -1,6 +1,6 @@
-#include<stdio.h>
+# include<stdio.h>
 int main()
-{ void matrixadd(double *a,double *b,int n,int m,int h,int w);
+{ void matrixadd(double **a,double **b,int n,int m);
 	printf("请输入第一个矩阵行数和列数：\n");
 	int n,m;
 	scanf("%d,%d",&n,&m);
@@ -31,9 +31,12 @@ int main()
 	      printf("\n");
 	   }
 	   printf("请进行以下选择：\n");
-	   printf("\t\t1.两个矩阵的加运算");
-	   printf("\t\t2.两个矩阵的减运算");
-	   printf("\t\t3.两个矩阵的数乘运算");
+	   printf("\t\t1.两个矩阵的加运算\n");
+	   if((n==h)&&(m==w))
+	  {
+	    matrixadd(a[n][m],b[h][w]);}
+	   printf("\t\t2.两个矩阵的减运算\n");
+	   printf("\t\t3.两个矩阵的数乘运算\n");
 	   
 	   
 	  	   
@@ -41,11 +44,11 @@ int main()
 return 0;
  }
  
- void matrixadd(double *a,double *b,int n,int m)
+ void matrixadd(double a[][],double b[][],int n,int m)
  {  int i,j;
     {for(i=0;i<n;i++)
         {for(j=0;j<m;j++)
-            {a[i][j4]=a[i][j]+b[i][j];
+            {a[i][j]=a[i][j]+b[i][j];
 			}
 		}
 	}
@@ -58,7 +61,7 @@ return 0;
  }
  
  
-  void matrixsubtract(double *a,double *b,int n,int m)
+  void matrixsubtract(double **a,double **b,int n,int m)
  {  int i,j;
     {for(i=0;i<n;i++)
         {for(j=0;j<m;j++)
@@ -74,7 +77,7 @@ return 0;
 	   printf("\n");
  }
  
- void matrixmultiply(double *a,int n,int m)
+ void matrixmultiply(double **a,int n,int m)
  {double x;
  int i,j;
  scanf("%lf",&x);
@@ -91,7 +94,7 @@ for(i=0;i<n;i++)
    printf("\n");
  }
  
- void matrixtransposition(double *a,int n,int m)
+ void matrixtransposition(double **a,int n,int m)
  {double c[m][n];
  int i,j;
  for(i=0;i<n;i++)
@@ -112,7 +115,7 @@ for(i=0;i<n;i++)
  
  
  
- void matrixinveerse(double *a,int n;int m)
+ void matrixinveerse(double **a,int n,int m)
  {
  }
  
