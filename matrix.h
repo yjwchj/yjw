@@ -9,10 +9,12 @@ void matrixadd()
 	double a[200][200];
 	for(i=0;i<n;i++)
 	   for(j=0;j<m;j++)
-	       {scanf("%lf",&a[i][j]);
+	       {
+		   scanf("%lf",&a[i][j]);
 		   }
 	for(i=0;i<m;i++)
-	   {if(i%m==0)
+	   {
+	     if(i%m==0)
 	      printf("\n");
 	   }
 	printf("请输入第二个矩阵的行数和列数：\n");
@@ -22,23 +24,29 @@ void matrixadd()
 	double b[200][200];
 	for(i=0;i<k;i++)
 	   for(j=0;j<g;j++)
-	       {scanf("%lf",&b[i][j]);
+	       {
+		    scanf("%lf",&b[i][j]);
 		   }
 	for(i=0;i<g;i++)
-	   {if(i%g==0)
+	   {
+	    if(i%g==0)
 	      printf("\n");
 	}
 	if((n==k)&&(m==g))
-	   {k=n;
+	   {
+	    k=n;
 	    g=m;
 	   
     for(i=0;i<n;i++)
-        {for(j=0;j<m;j++)
-            {a[i][j]=a[i][j]+b[i][j];
+        {
+		 for(j=0;j<m;j++)
+            {
+			 a[i][j]=a[i][j]+b[i][j];
 			}
 		}
     for(i=0;i<n;i++) 
-       {for(j=0;j<m;j++)
+       {
+	    for(j=0;j<m;j++)
            {
            	if(j%m==0)
            	printf("\n");
@@ -47,7 +55,9 @@ void matrixadd()
 	   }
 	   }
 	   else
+	  {
 	   printf("不能进行运算\n");
+	   } 
 	   printf("\n");
 }
 
@@ -61,10 +71,12 @@ void matrixsubtract()
 	double a[200][200];
 	for(i=0;i<n;i++)
 	   for(j=0;j<m;j++)
-	       {scanf("%lf",&a[i][j]);
+	       {
+		    scanf("%lf",&a[i][j]);
 		   }
 	for(i=0;i<m;i++)
-	   {if(i%m==0)
+	   {
+	     if(i%m==0)
 	      printf("\n");
 	   }
 	printf("请输入第二个矩阵的行数和列数：\n");
@@ -74,27 +86,35 @@ void matrixsubtract()
 	double b[200][200];
 	for(i=0;i<k;i++)
 	   for(j=0;j<g;j++)
-	       {scanf("%lf",&b[i][j]);
+	       {
+		    scanf("%lf",&b[i][j]);
 		   }
 	for(i=0;i<g;i++)
-	   {if(i%g==0)
+	   {
+	     if(i%g==0)
 	      printf("\n");
 	   }
     if((n==k)&&(m==g))
-       {k=n;
+       {
+	    k=n;
         g=m;
 	   
         for(i=0;i<n;i++)
-           {for(j=0;j<m;j++)
-            {a[i][j]=a[i][j]-b[i][j];
+           {
+		    for(j=0;j<m;j++)
+            {
+			  a[i][j]=a[i][j]-b[i][j];
 			}
 	    	}
 	
         for(i=0;i<n;i++) 
-          {for(j=0;j<m;j++)
+          {
+		   for(j=0;j<m;j++)
           {
 		    if(j%m==0)
-           {printf("\n");}
+           {
+		    printf("\n");
+		   }
 		    printf("%lf",a[i][j]);
 		   }
 	   }
@@ -116,11 +136,13 @@ void matrixmultiply()
 	double a[200][200];
 	for(i=0;i<n;i++)
 	   for(j=0;j<m;j++)
-	       {scanf("%lf",&a[i][j]);
+	       {
+		    scanf("%lf",&a[i][j]);
 		   }
 	for(i=0;i<m;i++)
-	   {if(i%m==0)
-	      printf("\n");
+	   {
+	      if(i%m==0)
+	       printf("\n");
 	   }
 	printf("请输入第二个矩阵的行数和列数：\n");
 	int k,g;
@@ -129,27 +151,33 @@ void matrixmultiply()
 	double b[200][200];
 	for(i=0;i<k;i++)
 	   for(j=0;j<g;j++)
-	       {scanf("%lf",&b[i][j]);
+	       {
+		    scanf("%lf",&b[i][j]);
 		   }
 	for(i=0;i<g;i++)
-	   {if(i%g==0)
+	   {
+	      if(i%g==0)
 	      printf("\n");
 	   }
     if((n==k)&&(m==g))
-       {k=n;
+       {
+	    k=n;
         g=m;
 	   
         for(i=0;i<n;i++)
-           {for(j=0;j<m;j++)
+           {
+		     for(j=0;j<m;j++)
             {a[i][j]=a[i][j]-b[i][j];
 			}
 	    	}
 	
         for(i=0;i<n;i++) 
-          {for(j=0;j<m;j++)
+          {
+		    for(j=0;j<m;j++)
           {
 		    if(j%m==0)
-           {printf("\n");}
+           {
+		    printf("\n");}
 		    printf("%lf",a[i][j]);
 		   }
 	   }
@@ -157,7 +185,9 @@ void matrixmultiply()
        
        
     else
-    printf("不能进行运算\n");
+    {
+	   printf("不能进行运算\n");
+    } 
 	   printf("\n");
 }
 
@@ -170,10 +200,12 @@ void matrixinverse()
 	double a[200][200];
 	for(i=0;i<n;i++)
 	   for(j=0;j<g;j++)
-	       {scanf("%lf",&a[i][j]);
+	       {
+		   scanf("%lf",&a[i][j]);
 		   }
 	for(i=0;i<g;i++)
-	   {if(i%g==0)
+	   {
+	      if(i%g==0)
 	      printf("\n");
 	  }
 	if(n==g)
@@ -198,8 +230,7 @@ void matrixinverse()
              t=b[m][m]; 
              i=m;
              while(b[m][m]==0)
-                 {
-                 	
+                 {	
                    b[m][m]=b[i+1][m];
                    i++;
                  }
@@ -271,21 +302,24 @@ void matrixtransposition()
 	double a[200][200];
 	for(i=0;i<n;i++)
 	   for(j=0;j<m;j++)
-	       {scanf("%lf",&a[i][j]);
+	       {
+		   scanf("%lf",&a[i][j]);
 		   }
 	for(i=0;i<m;i++)
-	   {if(i%m==0)
+	   {
+	      if(i%m==0)
 	      printf("\n");
 	  }
- double c[200][200];
- for(i=0;i<n;i++)
+    double c[200][200];
+    for(i=0;i<n;i++)
     {for(j=0;j<m;j++)
         {c[j][i]=a[i][j];
 		}
 	}
-for(i=0;i<m;i++)
+   for(i=0;i<m;i++)
    {for(j=0;j<n;j++)
-       {if(j%n==0)
+       {
+	    if(j%n==0)
          {
 		 printf("\n");
         }
@@ -293,7 +327,7 @@ for(i=0;i<m;i++)
 	   }
    }
    printf("\n");
- }
+}
  
 void menu()
 {
