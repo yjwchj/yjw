@@ -167,7 +167,8 @@ void matrixmultiply()
         for(i=0;i<n;i++)
            {
 		     for(j=0;j<m;j++)
-            {a[i][j]=a[i][j]-b[i][j];
+            {
+			  a[i][j]=a[i][j]-b[i][j];
 			}
 	    	}
 	
@@ -290,7 +291,9 @@ void matrixinverse()
                }
         }
         else
-        printf("ÎÞÄæ¾ØÕó\n");
+        {
+		  printf("ÎÞÄæ¾ØÕó\n");
+        } 
 } 
 
 void matrixtransposition()
@@ -312,8 +315,10 @@ void matrixtransposition()
 	  }
     double c[200][200];
     for(i=0;i<n;i++)
-    {for(j=0;j<m;j++)
-        {c[j][i]=a[i][j];
+    {
+	  for(j=0;j<m;j++)
+        {
+		  c[j][i]=a[i][j];
 		}
 	}
    for(i=0;i<m;i++)
