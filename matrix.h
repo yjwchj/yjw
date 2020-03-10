@@ -2,9 +2,9 @@
 void matrixadd()
 {
     printf("请输入第一个矩阵行数和列数：\n");
-	int n,m;
+	int n, m;
 	scanf("%d,%d",&n,&m);
-	int i,j;
+	int i, j;
 	printf("请输入目标矩阵：\n");
 	double a[200][200];
 	for(i=0;i<n;i++)
@@ -18,7 +18,7 @@ void matrixadd()
 	      printf("\n");
 	   }
 	printf("请输入第二个矩阵的行数和列数：\n");
-	int k,g;
+	int k, g;
 	scanf("%d,%d",&k,&g);
 	printf("请输入目标矩阵：\n");
 	double b[200][200];
@@ -41,7 +41,7 @@ void matrixadd()
         {
 		 for(j=0;j<m;j++)
             {
-			 a[i][j]=a[i][j]+b[i][j];
+			 a[i][j] = a[i][j] + b[i][j];
 			}
 		}
     for(i=0;i<n;i++) 
@@ -64,9 +64,9 @@ void matrixadd()
 
 void matrixsubtract()
 {  printf("请输入第一个矩阵行数和列数：\n");
-	int n,m;
+	int n, m;
 	scanf("%d,%d",&n,&m);
-	int i,j;
+	int i, j;
 	printf("请输入目标矩阵：\n");
 	double a[200][200];
 	for(i=0;i<n;i++)
@@ -80,7 +80,7 @@ void matrixsubtract()
 	      printf("\n");
 	   }
 	printf("请输入第二个矩阵的行数和列数：\n");
-	int k,g;
+	int k, g;
 	scanf("%d,%d",&k,&g);
 	printf("请输入目标矩阵：\n");
 	double b[200][200];
@@ -103,7 +103,7 @@ void matrixsubtract()
            {
 		    for(j=0;j<m;j++)
             {
-			  a[i][j]=a[i][j]-b[i][j];
+			  a[i][j] = a[i][j] - b[i][j];
 			}
 	    	}
 	
@@ -129,7 +129,7 @@ void matrixsubtract()
 
 void matrixmultiply()
  {  printf("请输入第一个矩阵行数和列数：\n");
-	int n,m;
+	int n, m;
 	scanf("%d,%d",&n,&m);
 	int i,j;
 	printf("请输入目标矩阵：\n");
@@ -145,7 +145,7 @@ void matrixmultiply()
 	       printf("\n");
 	   }
 	printf("请输入第二个矩阵的行数和列数：\n");
-	int k,g;
+	int k, g;
 	scanf("%d,%d",&k,&g);
 	printf("请输入目标矩阵：\n");
 	double b[200][200];
@@ -168,7 +168,7 @@ void matrixmultiply()
            {
 		     for(j=0;j<m;j++)
             {
-			  a[i][j]=a[i][j]-b[i][j];
+			  a[i][j] = a[i][j] - b[i][j];
 			}
 	    	}
 	
@@ -194,7 +194,7 @@ void matrixmultiply()
 
 void matrixinverse()
 { 	printf("请输入矩阵行数和列数：\n");
-	int n,g;
+	int n, g;
 	scanf("%d,%d",&n,&g);
 	int i,j;
 	printf("请输入目标矩阵：\n");
@@ -219,8 +219,10 @@ void matrixinverse()
         double c[200][200];
         double b[200][200];
         for(i=0;i<n;i++)
-        for(j=0;j<n;j++)
-        b[i][j]=a[i][j];
+            {for(j=0;j<n;j++)
+                {b[i][j]=a[i][j];
+                } 
+            } 
         for(i=0;i<n;i++)
         for(j=n;j<2*n;j++)
         b[i][j]=0;
@@ -232,7 +234,7 @@ void matrixinverse()
              i=m;
              while(b[m][m]==0)
                  {	
-                   b[m][m]=b[i+1][m];
+                   b[m][m] = b[i+1][m];
                    i++;
                  }
              if(i>m)
@@ -241,13 +243,13 @@ void matrixinverse()
                    for(j=0;j<m;j++)
                       {
                         t=b[m][j];
-                        b[m][j]=b[i][j];
+                        b[m][j] = b[i][j];
                         b[i][j]=t;
                       }
              for(j=m+1;j<2*n;j++)
                 {
                    t=b[m][j];
-                   b[m][j]=b[i][j];
+                   b[m][j] = b[i][j];
                    b[i][j]=t;
                 }
                 }
@@ -318,7 +320,7 @@ void matrixtransposition()
     {
 	  for(j=0;j<m;j++)
         {
-		  c[j][i]=a[i][j];
+		  c[j][i] = a[i][j];
 		}
 	}
    for(i=0;i<m;i++)
