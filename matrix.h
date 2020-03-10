@@ -31,7 +31,7 @@ void matrixadd()
 	   {
 	    if(i%g==0)
 	      printf("\n");
-	}
+       }
 	if((n==k)&&(m==g))
 	   {
 	    k=n;
@@ -131,7 +131,7 @@ void matrixmultiply()
  {  printf("请输入第一个矩阵行数和列数：\n");
 	int n, m;
 	scanf("%d,%d",&n,&m);
-	int i,j;
+	int i, j;
 	printf("请输入目标矩阵：\n");
 	double a[200][200];
 	for(i=0;i<n;i++)
@@ -159,7 +159,7 @@ void matrixmultiply()
 	      if(i%g==0)
 	      printf("\n");
 	   }
-    if((n==k)&&(m==g))
+    if((n==k) && (m==g))
        {
 	    k=n;
         g=m;
@@ -178,7 +178,8 @@ void matrixmultiply()
           {
 		    if(j%m==0)
            {
-		    printf("\n");}
+		      printf("\n");
+		   }
 		    printf("%lf",a[i][j]);
 		   }
 	   }
@@ -189,14 +190,14 @@ void matrixmultiply()
     {
 	   printf("不能进行运算\n");
     } 
-	   printf("\n");
+    printf("\n");
 }
 
 void matrixinverse()
 { 	printf("请输入矩阵行数和列数：\n");
 	int n, g;
 	scanf("%d,%d",&n,&g);
-	int i,j;
+	int i, j;
 	printf("请输入目标矩阵：\n");
 	double a[200][200];
 	for(i=0;i<n;i++)
@@ -209,7 +210,7 @@ void matrixinverse()
 	      if(i%g==0)
 	      printf("\n");
 	  }
-	if(n==g)
+	if(n == g)
 	{
 		g=n;
 	
@@ -220,7 +221,8 @@ void matrixinverse()
         double b[200][200];
         for(i=0;i<n;i++)
             {for(j=0;j<n;j++)
-                {b[i][j]=a[i][j];
+                {
+				  b[i][j]=a[i][j];
                 } 
             } 
         for(i=0;i<n;i++)
@@ -266,7 +268,7 @@ void matrixinverse()
                   printf("%lf ",b[i][j]);
                   printf("\n"); 
                }
-            m=n-1;
+            m = n-1;
             while(m>0)
                  {
                     for(i=0;i<m;i++)
@@ -288,7 +290,9 @@ void matrixinverse()
             for(i=0;i<n;i++)
                {
                   for(j=0;j<n;j++)
-                  printf("%lf",c[i][j]);
+                  {
+				    printf("%lf",c[i][j]);
+                  } 
                   printf("\n"); 
                }
         }
@@ -300,15 +304,15 @@ void matrixinverse()
 
 void matrixtransposition()
  {	printf("请输入矩阵行数和列数：\n");
-	int n,m;
+	int n, m;
 	scanf("%d,%d",&n,&m);
-	int i,j;
+	int i, j;
 	printf("请输入目标矩阵：\n");
 	double a[200][200];
 	for(i=0;i<n;i++)
 	   for(j=0;j<m;j++)
 	       {
-		   scanf("%lf",&a[i][j]);
+		     scanf("%lf",&a[i][j]);
 		   }
 	for(i=0;i<m;i++)
 	   {
@@ -328,8 +332,8 @@ void matrixtransposition()
        {
 	    if(j%n==0)
          {
-		 printf("\n");
-        }
+		   printf("\n");
+         }
 	   printf("%lf",c[i][j]);
 	   }
    }
