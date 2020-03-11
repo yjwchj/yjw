@@ -1,5 +1,5 @@
 #include "list.h"
-void matrixadd(double **a,double **b,int n,int m)
+void matrixadd(double  (*)a[200],double (*)b[200],int n,int m)
 {
     int i, j;	   
     for(i=0;i<n;i++)
@@ -48,7 +48,7 @@ void matrixsubtract(double **a,double **b,int n,int m)
 }
 
 
-void matrixmultiply(double **a,double **b,int n,int m)
+void matrixmultiply(double **a,int n,int m)
  {
    double x;
    scanf("%d",&x);
@@ -75,7 +75,7 @@ void matrixmultiply(double **a,double **b,int n,int m)
     printf("\n");
 }
 
-void matrixinverse(double **a,double **b,int n,int m)
+void matrixinverse(double **a,int n,int m)
 {  int i, j;
 	if(n == m)
 	{
@@ -169,7 +169,7 @@ void matrixinverse(double **a,double **b,int n,int m)
         } 
 } 
 
-void matrixtransposition(double **a,double **b,int n,int m)
+void matrixtransposition(double **a,int n,int m)
  {
  	int i, j;
     double c[200][200];
@@ -204,48 +204,9 @@ void menu()
 	   printf("\t5.矩阵的转置\n");
 }
 
-void input() 
-{   printf("请输入第一个矩阵行数和列数：\n");
-	int n, m;
-	scanf("%d,%d",&n,&m);
-	int i, j;
-	printf("请输入目标矩阵：\n");
-	double a[200][200];
-	for(i=0;i<n;i++)
-	   for(j=0;j<m;j++)
-	       {
-		   scanf("%lf",&a[i][j]);
-		   }
-	for(i=0;i<m;i++)
-	   {
-	     if(i%m==0)
-	      printf("\n");
-	   }
-	printf("请输入第二个矩阵的行数和列数：\n");
-	int k, g;
-	scanf("%d,%d",&k,&g);
-	printf("请输入目标矩阵（如果不需要，请都输入0）：\n");
-	double b[200][200];
-	for(i=0;i<k;i++)
-	   for(j=0;j<g;j++)
-	       {
-		    scanf("%lf",&b[i][j]);
-		   }
-	for(i=0;i<g;i++)
-	   {
-	    if(i%g==0)
-	      printf("\n");
-       }
-    if((n==k) && (m==g))
-       {
-       	k=n;
-       	g=m;
-	   }
-	else
-	{
-		printf("不能进行运算\n");
-	}
-}
+
+
+
 
 
   
