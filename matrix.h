@@ -6,7 +6,7 @@ void matrixadd(double **a,double **b,int n,int m)     // 加法函数
         {
 		 for(j=0;j<m;j++)
             {
-			 *((double *)a+n*i+*j)=*((double *)a+n*i+*j)+*((double *)b+n*i+*j);   // a矩阵与b矩阵相加并赋值给a矩阵 
+			 *((double *)a+n*i+j)=*((double *)a+n*i+j)+*((double *)b+n*i+j);   // a矩阵与b矩阵相加并赋值给a矩阵 
 			}
 		}
     for(i=0;i<n;i++) 
@@ -76,12 +76,12 @@ void matrixmultiply(double **a,int n,int m)        //数乘函数
     printf("\n");
 }
 
-void matrixinverse(double **a,int n,int m)                      //
+void matrixinverse(double **a,int n,int m)                      //求逆函数 
 {  int i, j;
-	if(n == m)                                                 //
+	if(n == m)                                                 //判断是否为方阵，如果不是则无逆矩阵 
 	{
 		m=n;
-    }
+	
 	
         double t;
         int g;
@@ -90,50 +90,50 @@ void matrixinverse(double **a,int n,int m)                      //
         for(i=0;i<n;i++)
             {for(j=0;j<n;j++)
                 {
-				  b[i][j]=a[i][j];                           //
+				  *((double *)b+n*i+j) = *((double *)a+n*i+j);  //将a矩阵的值赋给b这个空数组 
                 } 
             } 
         for(i=0;i<n;i++)
-        for(j=n;j<2*n;j++)
-        b[i][j]=0;                                           //
+           for(j=n;j<2*n;j++)
+              *((double *)b+n*i+j)=0;                          //将b矩阵增广，后面为同阶单位阵 
         for(i=0;i<n;i++)
-        b[i][n+i]=1;                                         //
-        for(g=0;g<n;g++) 
+           *((double *)b+n*i+(n+i))=1;                         //单位阵的正对角线上的元素值为1 
+        for(g=0;g<n;g++)                                      //进行行变换，变为行阶梯型矩阵 
            {
-             t=b[g][g]; 
+             t=*((double *)b+n*g+g); 
              i=g;
-             while(b[g][g]==0)
+             while(*((double *)b+n*g+g)==0)                   
                  {	
-                   b[g][g] = b[i+1][g];
+                   *((double *)b+n*g+g) = *((double *)b+n*(i+1)+g);
                    i++;
                  }
              if(i>g)
                {
-                   b[i][g]=t; 
+                   *((double *)b+n*i+g)=t;                    //进行列变换，变为列阶梯形矩阵 
                    for(j=0;j<g;j++)
                       {
-                        t=b[g][j];
-                        b[g][j] = b[i][j];
-                        b[i][j]=t;
+                        t=*((double *)b+g*g+j);
+                        *((double *)b+g*g+j) = *((double *)b+g*i+j);
+                        *((double *)b+g*i+j)=t;
                       }
              for(j=g+1;j<2*n;j++)
                 {
-                   t=b[g][j];
-                   b[g][j] = b[i][j];
-                   b[i][j]=t;
+                   t=*((double *)b+(2*n)*g+j);
+                  *((double *)b+(2*n)*g+j)  = *((double *)b+(2*n)*i+j);
+                   *((double *)b+(2*n)*i+j)=t;
                 }
                 }
             for(i=g+1;i<n;i++)
             for(j=2*n-1;j>=g;j--)
-            b[i][j]-=b[i][g]*b[g][j]/b[g][g]; 
+            *((double *)b+g*i+j)-=*((double *)b+g*i+g)* *((double *)b+g*g+j)/ *((double *)b+g*g+g); //使每行的第一个元素值为0 
             for(j=2*n-1;j>=g;j--)
-            b[g][j]/=b[g][g]; 
+            *((double *)b+g*g+j)/=*((double *)b+g*g+g);                                             //使正对角线上的原宿值为1 
             } 
 
             for(i=0;i<n;i++)
                {
                   for(j=0;j<2*n;j++)
-                  printf("%lf ",b[i][j]);
+                  printf("%lf ",*((double *)b+(2*n)*i+j));                                          //输出第一次变换后的矩阵 
                   printf("\n"); 
                }
             g = n-1;
@@ -141,25 +141,25 @@ void matrixinverse(double **a,int n,int m)                      //
                  {
                     for(i=0;i<g;i++)
                     for(j=2*n-1;j>=g;j--) 
-                    b[i][j]-=b[i][g]*b[g][j];
+                    *((double *)b+g*i+j)-=*((double *)b+g*i+j)* *((double *)b+g*g+j);
                     g--;
                  }
 
             for(i=0;i<n;i++)
                {
                   for(j=0;j<2*n;j++)
-                  printf("%lf",b[i][j]);
+                  printf("%lf",*((double *)b+(2*n)*i+j));                                          //输出第二次变换后的矩阵 
                   printf("\n"); 
                }
             for(i=0;i<n;i++) 
                for(j=0;j<n;j++)
-                 c[i][j]=b[i][n+j];
+                 *((double *)c+n*i+j)=*((double *)b+n*i+(n+j));                                   //将b的后半边矩阵赋给c 
             printf("逆矩阵：\n");
             for(i=0;i<n;i++)
                {
                   for(j=0;j<n;j++)
                   {
-				    printf("%lf",c[i][j]);
+				    printf("%lf",*((double *)c+n*i+j));                                          //输出a的逆矩阵c 
                   } 
                   printf("\n"); 
                }
@@ -168,7 +168,8 @@ void matrixinverse(double **a,int n,int m)                      //
         {
 		  printf("无逆矩阵\n");
         } 
-} 
+}  
+
 
 void matrixtransposition(double **a,int n,int m)     //转置函数 
  {
@@ -178,7 +179,7 @@ void matrixtransposition(double **a,int n,int m)     //转置函数
     {
 	  for(j=0;j<m;j++)
         {
-		  c[j][i] = a[i][j];   //将a的行和列交换并赋值给c 
+		  *((double *)c+m*j+i) = *((double *)a+m*i+j);   //将a的行和列交换并赋值给c 
 		}
 	}
    for(i=0;i<m;i++)
@@ -188,7 +189,7 @@ void matrixtransposition(double **a,int n,int m)     //转置函数
          {
 		   printf("\n");
          }
-	   printf("%lf",c[i][j]);   //输出a 的转置矩阵 
+	   printf("%lf",*((double *)c+m*i+j);   //输出a 的转置矩阵 
 	   }
    }
    printf("\n");
