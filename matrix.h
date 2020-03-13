@@ -1,12 +1,12 @@
 #include "list.h"
-void matrixadd(double  (*)a[200],double (*)b[200],int n,int m)
+void matrixadd(double **a,double **b,int n,int m)
 {
     int i, j;	   
     for(i=0;i<n;i++)
         {
 		 for(j=0;j<m;j++)
             {
-			 a[i][j] = a[i][j] + b[i][j];
+			 *((double *)a+n*i+m*j)=*((double *)a+n*i+m*j)+*((double *)b+n*i+m*j);
 			}
 		}
     for(i=0;i<n;i++) 
@@ -15,7 +15,7 @@ void matrixadd(double  (*)a[200],double (*)b[200],int n,int m)
            {
            	if(j%m==0)
            	printf("\n");
-		    printf("%lf",a[i][j]);
+		    printf("%lf",*((double *)a+n*i+m*j));
 		   }
 	   }
 	   printf("\n");
@@ -50,16 +50,17 @@ void matrixsubtract(double **a,double **b,int n,int m)
 
 void matrixmultiply(double **a,int n,int m)
  {
-   double x;
-   scanf("%d",&x);
-   int i, j;
-   for(i=0;i<n;i++)
+ 	printf("请输入你要乘的数：\n"); 
+    double x;
+    scanf("%d",&x);
+    int i, j;
+    for(i=0;i<n;i++)
         {
 		    for(j=0;j<m;j++)
             {
-			  a[i][j] =x*a[i][j];
+			  *((double *)a+n*i+j) =x* *((double *)a+m*i+j);
 			}
-	    }
+	    } 
 	
     for(i=0;i<n;i++) 
         {
@@ -69,7 +70,7 @@ void matrixmultiply(double **a,int n,int m)
            {
 		      printf("\n");
 		   }
-		    printf("%lf",a[i][j]);
+		    printf("%lf",*((double *)a+m*i+j));
 		   }
 	   } 
     printf("\n");

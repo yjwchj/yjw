@@ -53,11 +53,11 @@ int main()
     scanf("%d",&x);
     switch (x)
         {
-			case 1:matrixadd(a,b,n,m);
+			case 1:matrixadd((double **)a,(double **)b,n,m);
 					break;
 			case 2:matrixsubtract(a,b,n,m);
 					break;
-			case 3:matrixmultiply(a,n,m);
+			case 3:matrixmultiply((double **)a,n,m);
 			        break;
 			case 4:matrixtransposition(a,n,m);
 		        	break;
