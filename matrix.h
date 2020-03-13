@@ -1,12 +1,12 @@
 #include "list.h"
-void matrixadd(double **a,double **b,int n,int m)
+void matrixadd(double **a,double **b,int n,int m)     // 加法函数 
 {
     int i, j;	   
     for(i=0;i<n;i++)
         {
 		 for(j=0;j<m;j++)
             {
-			 *((double *)a+n*i+m*j)=*((double *)a+n*i+m*j)+*((double *)b+n*i+m*j);
+			 *((double *)a+n*i+*j)=*((double *)a+n*i+*j)+*((double *)b+n*i+*j);   // a矩阵与b矩阵相加并赋值给a矩阵 
 			}
 		}
     for(i=0;i<n;i++) 
@@ -15,21 +15,21 @@ void matrixadd(double **a,double **b,int n,int m)
            {
            	if(j%m==0)
            	printf("\n");
-		    printf("%lf",*((double *)a+n*i+m*j));
+		    printf("%lf",*((double *)a+n*i+j));    //输出新的a矩阵 
 		   }
 	   }
 	   printf("\n");
 }
 
 
-void matrixsubtract(double **a,double **b,int n,int m)
+void matrixsubtract(double **a,double **b,int n,int m)  //减法函数 
 { 
     int i, j;
     for(i=0;i<n;i++)
     {
 	   for(j=0;j<m;j++)
             {
-			  a[i][j] = a[i][j] - b[i][j];
+			  *((double *)a+m*i+j) = *((double *)a+m*i+j) - *((double *)b+m*i+j);            //a矩阵与b矩阵相减并赋值给a矩阵 
 			}
 	    	}
 	
@@ -41,14 +41,14 @@ void matrixsubtract(double **a,double **b,int n,int m)
            {
 		    printf("\n");
 		   }
-		    printf("%lf",a[i][j]);
+		    printf("%lf",*((double *)a+m*i+j);                  //输出新的a矩阵 
 		   }
 	}
 	   printf("\n");
 }
 
 
-void matrixmultiply(double **a,int n,int m)
+void matrixmultiply(double **a,int n,int m)        //数乘函数 
  {
  	printf("请输入你要乘的数：\n"); 
     double x;
@@ -58,7 +58,7 @@ void matrixmultiply(double **a,int n,int m)
         {
 		    for(j=0;j<m;j++)
             {
-			  *((double *)a+n*i+j) =x* *((double *)a+m*i+j);
+			  *((double *)a+n*i+j) =x* *((double *)a+m*i+j);        //a矩阵数乘一个数并赋值给a矩阵 
 			}
 	    } 
 	
@@ -70,18 +70,18 @@ void matrixmultiply(double **a,int n,int m)
            {
 		      printf("\n");
 		   }
-		    printf("%lf",*((double *)a+m*i+j));
+		    printf("%lf",*((double *)a+m*i+j));                  //输出结果 
 		   }
 	   } 
     printf("\n");
 }
 
-void matrixinverse(double **a,int n,int m)
+void matrixinverse(double **a,int n,int m)                      //
 {  int i, j;
-	if(n == m)
+	if(n == m)                                                 //
 	{
 		m=n;
-	
+    }
 	
         double t;
         int g;
@@ -90,14 +90,14 @@ void matrixinverse(double **a,int n,int m)
         for(i=0;i<n;i++)
             {for(j=0;j<n;j++)
                 {
-				  b[i][j]=a[i][j];
+				  b[i][j]=a[i][j];                           //
                 } 
             } 
         for(i=0;i<n;i++)
         for(j=n;j<2*n;j++)
-        b[i][j]=0;
+        b[i][j]=0;                                           //
         for(i=0;i<n;i++)
-        b[i][n+i]=1;
+        b[i][n+i]=1;                                         //
         for(g=0;g<n;g++) 
            {
              t=b[g][g]; 
@@ -170,15 +170,15 @@ void matrixinverse(double **a,int n,int m)
         } 
 } 
 
-void matrixtransposition(double **a,int n,int m)
+void matrixtransposition(double **a,int n,int m)     //转置函数 
  {
  	int i, j;
-    double c[200][200];
+    double c[200][200];        //定义空的二维数组，存放a的转置矩阵 
     for(i=0;i<n;i++)
     {
 	  for(j=0;j<m;j++)
         {
-		  c[j][i] = a[i][j];
+		  c[j][i] = a[i][j];   //将a的行和列交换并赋值给c 
 		}
 	}
    for(i=0;i<m;i++)
@@ -188,21 +188,21 @@ void matrixtransposition(double **a,int n,int m)
          {
 		   printf("\n");
          }
-	   printf("%lf",c[i][j]);
+	   printf("%lf",c[i][j]);   //输出a 的转置矩阵 
 	   }
    }
    printf("\n");
 }
  
-void menu()
+void menu()                  //菜单函数 
 {
 	
        printf("请进行以下选择：\n");
 	   printf("\t1.两个矩阵的加运算\n");
 	   printf("\t2.两个矩阵的减运算\n");
 	   printf("\t3.矩阵的数乘运算\n");
-	   printf("\t4.矩阵的求逆\n");
-	   printf("\t5.矩阵的转置\n");
+	   printf("\t4.矩阵的转置\n");
+	   printf("\t5.矩阵的求逆\n");
 }
 
 
