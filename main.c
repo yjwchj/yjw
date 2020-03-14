@@ -40,10 +40,10 @@ int main()
        }
     if((n==k) && (m==g))              //判断两个矩阵是否行数和列数相同，不相同则不能运算 
        {
-       	k=n;                          //是他们两个的函数和列数各为同一个变量 
+       	k=n;                          //使他们两个的函数和列数各为同一个变量 
        	g=m;
 	   }
-	else+
+	else
 	{
 		printf("不能进行运算\n");
 	} 
@@ -55,11 +55,11 @@ int main()
         {
 			case 1:matrixadd((double **)a,(double **)b,n,m);         //引用加法函数 
 					break;
-			case 2:matrixsubtract(a,b,n,m);                         //引用减法函数 
+			case 2:matrixsubtract((double**)a,(double **)b,n,m);                         //引用减法函数 
 					break;
 			case 3:matrixmultiply((double **)a,n,m);                //引用数乘函数 
 			        break;
-			case 4:matrixinverse(a,n,m);                           //引用转置函数 
+			case 4:matrixinverse((double **)a,n,m);                           //引用转置函数 
 		        	break;
 			case 5:matrixtransposition((double **)a,n,m);          //引用求逆函数 
 			        break;
