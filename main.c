@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "matrix.h"
-#include "list.h"
+#include "1matrix.h"
+#include "1list.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -42,33 +42,29 @@ int main()
        {
        	k=n;                          //使他们两个的函数和列数各为同一个变量 
        	g=m;
-	   }
-	else
-	{
-		printf("不能进行运算\n");
-	} 
+	   
 	menu();                         //输出菜单函数，供用户使用 
     printf("请输入你的选择：\n");
 	int x;                      
     scanf("%d",&x);                 //输入选择 
     switch (x)
         {
-			case 1:matrixadd((double **)a,(double **)b,n,m);         //引用加法函数 
+			case 1:matrixadd(a,b,n,m);               //引用加法函数 
 					break;
-			case 2:matrixsubtract((double**)a,(double **)b,n,m);                         //引用减法函数 
+			case 2:matrixsubtract(a,b,n,m);         //引用减法函数 
 					break;
-			case 3:matrixmultiply((double **)a,n,m);                //引用数乘函数 
+			case 3:matrixmultiply(a,n,m);          //引用数乘函数 
 			        break;
-			case 4:matrixinverse((double **)a,n,m);                           //引用转置函数 
+			case 4:matrixtransposition(a,n,m);    //引用转置函数 
 		        	break;
-			case 5:matrixtransposition((double **)a,n,m);          //引用求逆函数 
+			case 5:matrixinverse(a,n,m);          //引用求逆函数 
 			        break;
-			
-		
-	       if((x!=1) || (x!=2) || (x!=3) || (x!=4) || (x!=5))     //如果是五种选择之外的则直接结束 
-	         {
-	        	printf("结束"); 
+			default:  printf("结束\n");   //如果是五种选择之外的则直接结束 printf("结束"); 
 	         }
-	   } 
+		} 
+	else
+	{
+		printf("不能进行运算\n");
+	} 
 	return 0;
 }
