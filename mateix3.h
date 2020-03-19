@@ -1,5 +1,11 @@
 void matrixadd(double **a,double **b,int n,int m)     // ¼Ó·¨º¯Êý 
 {
+	if ((a == NULL)||(b == NULL) 			//ÐÎ²Î¿ÕÐ£Ñé 
+	{
+		printf("error\n");
+		exit(1);
+	}
+
     int i, j;	   
     for(i=0;i<n;i++)
         {
@@ -23,6 +29,11 @@ void matrixadd(double **a,double **b,int n,int m)     // ¼Ó·¨º¯Êý
 
 void matrixsubtract(double **a,double **b,int n,int m)  //¼õ·¨º¯Êý 
 { 
+    if ((a == NULL)||(b == NULL) 			//ÐÎ²Î¿ÕÐ£Ñé 
+	{
+		printf("error\n");
+		exit(1);
+	}
     int i, j;
     for(i=0;i<n;i++)
     {
@@ -49,6 +60,11 @@ void matrixsubtract(double **a,double **b,int n,int m)  //¼õ·¨º¯Êý
 
 void matrixmultiply(double **a,int n,int m)        //Êý³Ëº¯Êý 
  {
+ 	if (a == NULL)			//ÐÎ²Î¿ÕÐ£Ñé 
+	{
+		printf("error\n");
+		exit(1);
+	}
  	printf("ÇëÊäÈëÄãÒª³ËµÄÊý£º\n"); 
     double x;
     scanf("%lf",&x);
@@ -78,6 +94,11 @@ void matrixmultiply(double **a,int n,int m)        //Êý³Ëº¯Êý
 
 double caculate(double **a,int n)                //¼ÆËãÐÐÁÐÊ½º¯Êý,aÊý×é±£´æËùÒª²Ù×÷µÄ¾ØÕó
 {
+	if (a == NULL)			//ÐÎ²Î¿ÕÐ£Ñé 
+	{
+		printf("error\n");
+		exit(1);
+	}
 	int i,j,k;
  	double sum = 0;                             //ÓÃÓÚ´¢´æÀÛ¼Ó½á¹û 
 	int l = 0;                                 //¶¨ÒåÐÐÁÐÁ½¸ö±äÁ¿ 
@@ -110,6 +131,12 @@ double caculate(double **a,int n)                //¼ÆËãÐÐÁÐÊ½º¯Êý,aÊý×é±£´æËùÒª²
 
 void matrixinverse(double **a,int n,int m)
 {	
+    if (a == NULL) 			//ÐÎ²Î¿ÕÐ£Ñé 
+	{
+		printf("error\n");
+		exit(1);
+	}
+
     if(n==m)
     {
 	m=n;
@@ -152,13 +179,13 @@ void matrixinverse(double **a,int n,int m)
  	 
 }
 
-
-
-
-
-
 void matrixtransposition(double **a,int n,int m)     //×ªÖÃº¯Êý 
  {
+ 	if (a == NULL)			//ÐÎ²Î¿ÕÐ£Ñé 
+	{
+		printf("error\n");
+		exit(1);
+	}
  	int i, j;
     double c[n][m];        //¶¨Òå¿ÕµÄ¶þÎ¬Êý×é£¬´æ·ÅaµÄ×ªÖÃ¾ØÕó 
     for(i=0;i<n;i++)
